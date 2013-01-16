@@ -1,0 +1,19 @@
+#!/usr/bin/perl -W
+ 
+use strict;
+use Qt;
+use Radados::AutoPath qw(:DEFAULT $LocalRunPath);
+
+require "nodeconfqt.pm";
+
+my @RunCmd = @ARGV;
+my $ProgramToRun = shift;
+
+my $App1 = Qt::Application(\@ARGV);
+
+
+my $nodeconfqt1 = new nodeconfqt($ARGV[0]);
+$App1->setStyle("Windows");
+$App1->setMainWidget($nodeconfqt1);
+$nodeconfqt1->show;
+exit $App1->exec;
